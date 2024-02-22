@@ -16,6 +16,7 @@ app.get("/greeting", (req, res) => {
 });
 
 //create API endpoint with POST request
+//change this to review page??
 app.post("/", function (req, res) {
   res.send("POST request to /");
   //...code that does something
