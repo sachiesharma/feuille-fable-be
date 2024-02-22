@@ -1,6 +1,9 @@
 //initialize Express in project
 const express = require("express");
 const app = express();
+const cors = require("cors");
+
+app.use(cors());
 
 //when the server receives a GET request to '/'
 app.get("/", (req, res) => {
@@ -13,7 +16,8 @@ app.get("/greeting", (req, res) => {
 });
 
 //create API endpoint with POST request
-app.post("/endpoint", function (req, res) {
+app.post("/", function (req, res) {
+  res.send("POST request to /");
   //...code that does something
 });
 

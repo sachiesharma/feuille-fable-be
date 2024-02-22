@@ -6,14 +6,11 @@ const Review = require("../models/Review");
 router.post("/reviews", async (req, res) => {
   try {
     const { userId, bookId, text, rating } = req.body;
-    const review = new Review({ userId, bookId, text, rating });
-    await review.save();
-    res
-      .status(201)
-      .json({ success: true, message: "Review created successfully" });
+    const newReview = await Review.create({ userId, bookId, text, rating });
+    res.status(201).json(newReview);
   } catch (error) {
     console.error("Error creating review:", error);
-    res.status(500).json({ success: false, error: "Internal server error" });
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
