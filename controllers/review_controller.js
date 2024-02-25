@@ -12,6 +12,13 @@ const addReview = async (req, res) => {
   }
 };
 
+// const getReview = async (req, res) => {
+//     try {
+//         // Fetch reviews from "reviews" table
+//         const reviewData = await knex("reviews").select("*");
+//     }
+// }
+
 module.exports = {
   addReview,
 };
