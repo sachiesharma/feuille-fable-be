@@ -8,7 +8,7 @@ exports.up = function (knex) {
     table.string("bookId").notNullable();
     table.string("title").notNullable();
     table.string("author").notNullable();
-    table.string("text").notNullable();
+    table.text("text").notNullable();
     table.integer("rating").notNullable();
     table.string("coverUrl").notNullable();
     table.timestamp("created_at").defaultTo(knex.fn.now());
