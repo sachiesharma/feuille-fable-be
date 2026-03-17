@@ -2,12 +2,14 @@ const knex = require("knex")(require("../knexfile"));
 
 const addReview = async (req, res) => {
   const { body } = req;
+  console.log("Adding review:", body);
 
   try {
-    const [id] = await knex("reviews").insert(body);
-    const newReview = await knex("reviews").where("id", id).first();
+    const [newReview] = await knex("reviews").insert(body).returning("*");
+    console.log("Review added:", newReview);
     return res.status(201).json(newReview);
   } catch (error) {
+    console.error("Error adding review:", error);
     res.status(500).json({ message: `Error getting reviews ${error}` });
   }
 };
