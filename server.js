@@ -7,7 +7,7 @@ const reviewsRoutes = require("./routes/reviewsRoutes");
 //Middleware
 app.use(
   cors({
-    origin: ["http://localhost:3000", process.env.CLIENT_URL],
+    origin: [/^http:\/\/localhost:\d+$/, process.env.CLIENT_URL],
   }),
 );
 app.use(express.json());
