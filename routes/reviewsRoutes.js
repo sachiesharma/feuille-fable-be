@@ -12,4 +12,8 @@ router.get("/", (req, res) => {
 
 router.get("/saved-reviews", review.getReview);
 
+//Routes to update or delete a single review
+router.put("/saved-reviews/:id", review.updateReview);
+router.delete("/saved-reviews/:id", review.deleteReview);
+
 module.exports = router;
